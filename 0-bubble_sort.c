@@ -29,6 +29,11 @@ void bubble_sort(int *array, size_t size)
 {
 	size_t arr_pos, elem_pos;
 
+	/** Check if array is empty and size of array is less than 2 */
+	if (array == NULL || size < 2)
+	{
+		return;
+	}
 	/** iterate over the array first */
 	for (arr_pos = 0; arr_pos < size - 1; arr_pos++)
 	{
