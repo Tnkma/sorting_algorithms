@@ -1,14 +1,14 @@
 #include "sort.h"
 
 /**
- * swap_elements - swap the values
+ * swap - swap the values
  * @element_a: the first element to swap
  * @element_b: the second element to swap
  *
  * Return: void since were void
  */
 
-void swap_elem(int *element_a, int *element_b)
+void swap(int *element_a, int *element_b)
 {
 	int tmp; /** temporary variable to hold the elements */
 
@@ -18,8 +18,8 @@ void swap_elem(int *element_a, int *element_b)
 }
 
 /**
- * bubble sort - data sorting algorithm
- * @arry: the array to sort
+ * bubble_sort - data sorting algorithm
+ * @array: the array to sort
  * @size: the size of the array
  *
  * Return: Nothing since were void
@@ -36,7 +36,7 @@ void bubble_sort(int *array, size_t size)
 		{
 			if (array[elem_pos] > array[elem_pos + 1])
 			{
-				swap_elem(&array[elem_pos], &array[elem_pos + 1]);
+				swap(&array[elem_pos], &array[elem_pos + 1]);
 				print_array(array, size);
 			}
 		}
