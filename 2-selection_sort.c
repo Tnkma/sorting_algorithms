@@ -65,6 +65,6 @@ void selection_sort(int *array, size_t size)
 			print_array(array, size);
 		}
 		/** increment the arr_pos and go to the next value in the array */
-		arr_pos ++;
+		arr_pos++;
 	}
 }
