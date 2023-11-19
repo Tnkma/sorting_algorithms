@@ -32,7 +32,7 @@ int check_if_sorted(const int *array, size_t size)
 void selection_sort(int *array, size_t size)
 {
 	size_t elem_pos, arr_pos = 0, min_value;
-	int tmp;
+	int tmp, check = 0;
 
 	/** check if the array is empty and size empty */
 	if (array == NULL || size < 2)
@@ -44,6 +44,7 @@ void selection_sort(int *array, size_t size)
 	{
 		/** keep the count of the current position as the min_value*/
 		min_value = arr_pos;
+		check = 0;
 		for (elem_pos = arr_pos + 1; elem_pos < size; elem_pos++)
 		{
 			/** compare the elem_pos with what in the min_value */
@@ -52,6 +53,7 @@ void selection_sort(int *array, size_t size)
 				/** were sure its the lowest value */
 				/** update the min_value to elem_pos */
 				min_value = elem_pos;
+				check += 1;
 			}
 		}
 		/** swap the min_value with the very first value */
@@ -60,7 +62,7 @@ void selection_sort(int *array, size_t size)
 		array[arr_pos] = tmp;
 
 		/** check if the array is sorted before printing */
-		if (!check_if_sorted(array, size))
+		if (check != 0)
 		{
 			print_array(array, size);
 		}
