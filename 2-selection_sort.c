@@ -1,6 +1,27 @@
 #include "sort.h"
 
 /**
+ * check_if_sorted - checks if the array is sorted and dont print it
+ * @array: the array to check
+ * @size: size of the array
+ *
+ * Return: 0 if not sorted and 1 if sorted
+ */
+int check_if_sorted(const int *array, size_t size)
+{
+	size_t i;
+
+	for (i = 0; i < size - 1; i++)
+	{
+		if (array[i] > array[i + 1])
+		{
+			return (0);
+		}
+	}
+	return (1); /* its sorted then skip */
+}
+
+/**
  * selection_sort - selection method of sorting
  * @array: the array to sort
  * @size: the length/ size of the array
@@ -37,8 +58,12 @@ void selection_sort(int *array, size_t size)
 		tmp = array[min_value];
 		array[min_value] = array[arr_pos];
 		array[arr_pos] = tmp;
-		print_array(array, size);
 
+		/** check if the array is sorted before printing */
+		if (!check_if_sorted(array, size))
+		{
+			print_array(array, size);
+		}
 		/** increment the arr_pos and go to the next value in the array */
 		arr_pos ++;
 	}
