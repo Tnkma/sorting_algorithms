@@ -30,6 +30,7 @@ void shell_sort(int *array, size_t size);
 size_t partition(int *array, ssize_t low, ssize_t high, size_t size);
 void quick_sort(int *array, size_t size);
 void quicksort(int *array, ssize_t low, ssize_t high, size_t size);
-
+void swaps(listint_t **list, listint_t *node);
+void cocktail_sort_list(listint_t **list);
 
 #endif
