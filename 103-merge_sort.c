@@ -13,7 +13,8 @@
  *
  * Return: void
  */
-void Two_sort_Merge(size_t start, size_t middle, size_t end, int *dest, int *source)
+void Two_sort_Merge(size_t start, size_t middle, size_t end,
+			int *dest, int *source)
 {
 	size_t i, j, k;
 
