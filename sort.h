@@ -35,5 +35,9 @@ void cocktail_sort_list(listint_t **list);
 void Two_sort_Merge(size_t start, size_t middle, size_t end, int *dest, int *source);
 void TDSplitMerge(size_t start, size_t end, int *array, int *copy);
 void merge_sort(int *array, size_t size);
+void bitonic_compare(char up, int *array, size_t size);
+void bitonic_merge(char up, int *array, size_t size);
+void bit_sort(char up, int *array, size_t size, size_t t);
+void bitonic_sort(int *array, size_t size);
 
 #endif
