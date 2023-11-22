@@ -25,23 +25,27 @@ void swap_elements(int *element_a, int *element_b)
  *
  * Return: the partitioned aray
  */
-int partition(int *array, int low, int las_num)
+int partition(int *array, int low, int las_num, size_t size)
 {
 	int pivot = array[las_num];
 	int i = low - 1, j;
 
-	for (j = low; j < las_num; j++)
+	for (j = low; j <= las_num; j++)
 	{
-		if (array[j] < pivot)
+		if (array[j] <= pivot)
 		{
 			i++;
-			swap_elements(&array[i], &array[j]);
+			if (i != j)
+			{
+				swap_elements(&array[i], &array[j]);
+				print_array(array, size);
+			}
 		}
 	}
 
-	swap_elements(&array[i + 1], &array[las_num]);
+	/*swap_elements(&array[i + 1], &array[las_num]);*/
 	
-	return (i + 1);
+	return (i);
 }
 
 /**
@@ -53,17 +57,16 @@ int partition(int *array, int low, int las_num)
  * Return: void since were void
  */
 
-void recursive_call(int *array, int low, int las_ele)
+void recursive_call(int *array, int low, int las_ele, size_t size)
 {
 	int index;
 
 	if (low < las_ele)
 	{
-		index = partition(array, low, las_ele);
-		recursive_call(array, low, index - 1);
-		recursive_call(array, index + 1, las_ele);
+		index = partition(array, low, las_ele, size);
+		recursive_call(array, low, index - 1, size);
+		recursive_call(array, index + 1, las_ele, size);
 	}
-	print_array(array, las_ele + 1);
 }
 /**
  * quick_sort - sorts an array of integer using the quick_sort algorithm
@@ -80,5 +83,5 @@ void quick_sort(int *array, size_t size)
 	{
 		return;
 	}
-	recursive_call(array, 0, size - 1);
+	recursive_call(array, 0, size - 1, size);
 }
