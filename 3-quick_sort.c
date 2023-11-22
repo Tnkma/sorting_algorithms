@@ -22,6 +22,7 @@ void swap_elements(int *element_a, int *element_b)
  * @array: the array to partition
  * @low: the lowest number
  * @las_num: the last element of the pivot
+ * @size: the size of the array
  *
  * Return: the partitioned aray
  */
@@ -44,7 +45,6 @@ int partition(int *array, int low, int las_num, size_t size)
 	}
 
 	/*swap_elements(&array[i + 1], &array[las_num]);*/
-	
 	return (i);
 }
 
@@ -53,6 +53,7 @@ int partition(int *array, int low, int las_num, size_t size)
  * @array: the array to sort
  * @low: the starting index of the array
  * @las_ele: the last element in the array
+ * @size: the size of the array
  *
  * Return: void since were void
  */
