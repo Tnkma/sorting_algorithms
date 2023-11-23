@@ -1,6 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * partition - finds the partition for the quicksort using the Hoare scheme
@@ -39,7 +37,7 @@ size_t partition(int *array, ssize_t lo, ssize_t hi, size_t size)
 }
 
 /**
- * quick_sort - sorts a partition of an array of integers
+ * quick_sort_recursive - sorts a partition of an array of integers
  * @array: array to sort
  * @lo: lowest index of the partition to sort
  * @hi: highest index of the partition to sort
@@ -47,15 +45,15 @@ size_t partition(int *array, ssize_t lo, ssize_t hi, size_t size)
  *
  * Return: void
  */
-void quick_sort(int *array, ssize_t lo, ssize_t hi, size_t size)
+void quick_sort_recursive(int *array, ssize_t lo, ssize_t hi, size_t size)
 {
 	ssize_t pivot;
 
 	if (lo < hi)
 	{
 		pivot = partition(array, lo, hi, size);
-		quicksort(array, lo, pivot, size);
-		quicksort(array, pivot + 1, hi, size);
+		quick_sort_recursive(array, lo, pivot, size);
+		quick_sort_recursive(array, pivot + 1, hi, size);
 
 	}
 }
@@ -72,5 +70,5 @@ void quick_sort_hoare(int *array, size_t size)
 {
 	if (array == NULL || size < 2)
 		return;
-	quicksort(array, 0, size - 1, size);
+	quick_sort_recursive(array, 0, size - 1, size);
 }
