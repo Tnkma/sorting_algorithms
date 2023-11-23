@@ -1,27 +1,40 @@
 #include "sort.h"
-#include <stdio.h>
 
 /**
- * bitonic_compare - sort the values in a sub-array with respect to
- * the Bitonic sort algorithm
+ * swap_elements - swaps the two elements
+ * @element_a: the first element
+ * @element_b: the second element
+ *
+ * Return: void since were void
+ */
+
+void swap_elements(int *element_a, int *element_b)
+{
+	int tmp;
+
+	tmp = *element_a;
+	*element_a = *element_b;
+	*element_b = tmp;
+}
+
+/**
+ * bitonic_compare - sort the elems in a sub-array with Bitonic_sort algorithm
  * @up: direction of sorting
  * @array: sub-array to sort
  * @size: size of the sub-array
- * Return: void
+ *
+ * Return: void since were void
  */
 void bitonic_compare(char up, int *array, size_t size)
 {
 	size_t i, dist;
-	int swap;
 
 	dist = size / 2;
 	for (i = 0; i < dist; i++)
 	{
 		if ((array[i] > array[i + dist]) == up)
 		{
-			swap = array[i];
-			array[i] = array[i + dist];
-			array[i + dist] = swap;
+			swap_elements(&array[i], &array[i + dist]);
 		}
 	}
 }
@@ -31,6 +44,7 @@ void bitonic_compare(char up, int *array, size_t size)
  * @up: direction of sorting
  * @array: sub-array to sort
  * @size: size of the sub-array
+ *
  * Return: void
  */
 void bitonic_merge(char up, int *array, size_t size)
